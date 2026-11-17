@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Radicals &amp; Exponents Reviewer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="An animated, step-by-step reviewer for the laws of exponents, simplifying radicals, and the prerequisite skills behind them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=STIX+Two+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--CONTENT-START-->
+<a class="skip" href="#start">Skip to content</a>
+
+<div class="layout">
+  <nav class="toc" aria-label="Reviewer sections">
+    <div class="toc-brand">
+      <span class="toc-logo" aria-hidden="true">x<sup>n</sup>√</span>
+      <span>Reviewer path</span>
+    </div>
+    <ol>
+      <li><a href="#start" data-sec="start"><span class="toc-n">0</span><span class="toc-t">Start here</span></a></li>
+      <li><a href="#prereq" data-sec="prereq"><span class="toc-n">1</span><span class="toc-t">Skills you need first</span></a></li>
+      <li><a href="#laws" data-sec="laws"><span class="toc-n">2</span><span class="toc-t">Laws of exponents</span></a></li>
+      <li><a href="#simplify-exp" data-sec="simplify-exp"><span class="toc-n">3</span><span class="toc-t">Simplifying exponents</span></a></li>
+      <li><a href="#radicals" data-sec="radicals"><span class="toc-n">4</span><span class="toc-t">What a radical means</span></a></li>
+      <li><a href="#simplify-rad" data-sec="simplify-rad"><span class="toc-n">5</span><span class="toc-t">Simplifying radicals</span></a></li>
+      <li><a href="#operations" data-sec="operations"><span class="toc-n">6</span><span class="toc-t">Operations on radicals</span></a></li>
+      <li><a href="#practice" data-sec="practice"><span class="toc-n">7</span><span class="toc-t">Practice quiz</span></a></li>
+      <li><a href="#cheatsheet" data-sec="cheatsheet"><span class="toc-n">8</span><span class="toc-t">Cheat sheet</span></a></li>
+    </ol>
+    <p class="toc-progress"><span id="doneCount">0</span> of 6 lessons marked understood</p>
+  </nav>
+
+  <main id="main">
+
+    <!-- ============ 0. START ============ -->
+    <section id="start" class="hero" data-section>
+      <p class="eyebrow">Math reviewer · Grades 8–10</p>
+      <h1>Radicals &amp; Exponents</h1>
+      <p class="lede">Break a number into primes, pull out the groups, and write what's left. Every rule here is shown as an animation you can step through, pause and replay until it clicks.</p>
+      <div class="hero-demo" id="heroDemo" data-title="The whole idea in one animation"></div>
+      <div class="howto">
+        <h2 class="h-small">How to use this reviewer</h2>
+        <ul class="howto-list">
+          <li><b>Go in order.</b> Each lesson uses skills from the one before it. If something feels hard, go back one lesson.</li>
+          <li><b>Step through the animations.</b> Press <kbd>Next step →</kbd> or <kbd>▶ Play</kbd>. Click a dot to jump to any step. Arrow keys work too.</li>
+          <li><b>Say each step out loud</b> before you press Next. If you can predict the next step, you understand it.</li>
+          <li><b>Try the quick checks</b> at the end of each lesson, then take the practice quiz.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ 1. PREREQUISITES ============ -->
+    <section id="prereq" data-section>
+      <header class="sec-head">
+        <span class="sec-n">Lesson 1</span>
+        <h2>Skills you need first</h2>
+        <p>Exponents and radicals are built on six small skills. Most mistakes in this topic are really mistakes in one of these.</p>
+      </header>
+
+      <article class="topic">
+        <h3><span class="tn">1.1</span> Integers and signs</h3>
+        <p>When you multiply signed numbers: same signs give a <b>positive</b>, different signs give a <b>negative</b>. With exponents this means a negative base raised to an <b>even</b> power is positive, and to an <b>odd</b> power is negative.</p>
+        <div class="mini-grid">
+          <div class="mini"><span class="m">(−2)<sup>2</sup> = 4</span><span class="cap">even power → positive</span></div>
+          <div class="mini"><span class="m">(−2)<sup>3</sup> = −8</span><span class="cap">odd power → negative</span></div>
+          <div class="mini"><span class="m">(−1)<sup>100</sup> = 1</span><span class="cap">even power → positive</span></div>
+        </div>
+        <p>Parentheses decide what the base is. Watch the difference:</p>
+        <div class="pair">
+          <div data-stepper="signParen" data-title="(−3)² — the base is −3"></div>
+          <div data-stepper="signNoParen" data-title="−3² — the base is only 3"></div>
+        </div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">1.2</span> Order of operations (GEMDAS)</h3>
+        <p>Exponents come <b>before</b> multiplication, division, addition and subtraction. That is why −3<sup>2</sup> = −9: the exponent is done before the negative sign is applied.</p>
+        <ol class="gemdas">
+          <li><b>G</b><span>Grouping symbols: ( ), [ ], fraction bars, radical signs</span></li>
+          <li><b>E</b><span>Exponents and roots</span></li>
+          <li><b>MD</b><span>Multiplication and division, left to right</span></li>
+          <li><b>AS</b><span>Addition and subtraction, left to right</span></li>
+        </ol>
+        <p class="example">Example: 2 + 3 · 4<sup>2</sup> = 2 + 3 · 16 = 2 + 48 = <b>50</b> (not 20<sup>2</sup>).</p>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">1.3</span> Divisibility rules</h3>
+        <p>These let you find factors quickly when breaking numbers apart.</p>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Divisible by</th><th>If…</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>2</td><td>the last digit is even (0, 2, 4, 6, 8)</td><td>148</td></tr>
+              <tr><td>3</td><td>the sum of the digits is divisible by 3</td><td>252 → 2+5+2 = 9</td></tr>
+              <tr><td>4</td><td>the last two digits form a number divisible by 4</td><td>316 → 16</td></tr>
+              <tr><td>5</td><td>the last digit is 0 or 5</td><td>275</td></tr>
+              <tr><td>6</td><td>it is divisible by both 2 and 3</td><td>114</td></tr>
+              <tr><td>9</td><td>the sum of the digits is divisible by 9</td><td>738 → 7+3+8 = 18</td></tr>
+              <tr><td>10</td><td>the last digit is 0</td><td>450</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">1.4</span> Prime factorization (the ladder method)</h3>
+        <p>A <b>prime</b> number has exactly two factors: 1 and itself (2, 3, 5, 7, 11, 13, …). <b>Prime factorization</b> writes a number as a product of primes. This is the single most important skill for simplifying radicals.</p>
+        <p>The ladder: divide by the smallest prime that works, write the quotient below, and repeat until you reach 1. The primes on the left are the answer.</p>
+        <div class="tool" id="ladderTool">
+          <form class="tool-form" id="ladderForm">
+            <label for="ladderN">Number to factor</label>
+            <input id="ladderN" type="number" min="2" max="100000" value="360" inputmode="numeric">
+            <button type="submit" class="btn">Factor it</button>
+            <div class="chips" aria-label="Try these numbers">
+              <button type="button" class="chip-btn" data-n="72">72</button>
+              <button type="button" class="chip-btn" data-n="180">180</button>
+              <button type="button" class="chip-btn" data-n="243">243</button>
+              <button type="button" class="chip-btn" data-n="1000">1000</button>
+            </div>
+          </form>
+          <div class="ladder-out" id="ladderOut" aria-live="polite"></div>
+        </div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">1.5</span> Perfect squares and perfect cubes</h3>
+        <p>A <b>perfect square</b> is a whole number times itself; a <b>perfect cube</b> is a whole number used as a factor three times. Knowing these by heart makes simplifying radicals much faster. Tap a card to check yourself.</p>
+        <div class="seg" role="group" aria-label="Choose card set">
+          <button type="button" class="seg-btn is-on" data-set="sq" aria-pressed="true">Squares 1–20</button>
+          <button type="button" class="seg-btn" data-set="cu" aria-pressed="false">Cubes 1–10</button>
+          <button type="button" class="seg-btn" data-set="flipall">Reveal all</button>
+        </div>
+        <div class="cards" id="cards"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">1.6</span> Fractions: multiply and cancel</h3>
+        <p>Multiply straight across, then cancel common factors. Breaking numbers into primes first makes cancelling easy. The same idea is behind the quotient rule for exponents.</p>
+        <div data-stepper="fraction" data-title="2/3 · 9/4"></div>
+      </article>
+
+      <div class="checks">
+        <h3 class="h-small">Quick checks</h3>
+        <details><summary>What is (−5)<sup>2</sup>? And −5<sup>2</sup>?</summary><p>(−5)<sup>2</sup> = 25 because the base is −5. −5<sup>2</sup> = −25 because only 5 is squared.</p></details>
+        <details><summary>Write 84 as a product of primes.</summary><p>84 = 2 · 2 · 3 · 7 = 2<sup>2</sup> · 3 · 7</p></details>
+        <details><summary>Is 1 a prime number?</summary><p>No. A prime has exactly two different factors. 1 has only one factor.</p></details>
+      </div>
+      <label class="done"><input type="checkbox" id="done-prereq" data-done="prereq"> I understand this lesson</label>
+    </section>
+
+    <!-- ============ 2. LAWS OF EXPONENTS ============ -->
+    <section id="laws" data-section>
+      <header class="sec-head">
+        <span class="sec-n">Lesson 2</span>
+        <h2>The laws of exponents</h2>
+        <p>Every law below comes from one idea: an exponent counts how many times a base is used as a factor. Watch each law get built from that idea, so you never have to memorize it blindly.</p>
+      </header>
+
+      <article class="topic">
+        <h3><span class="tn">2.1</span> What an exponent means</h3>
+        <div class="anatomy" aria-label="Parts of a power">
+          <div class="anat-expr"><span class="anat-base">5</span><sup class="anat-exp">3</sup></div>
+          <div class="anat-labels">
+            <span class="lab lab-base">base: the number being multiplied</span>
+            <span class="lab lab-exp">exponent: how many times it is a factor</span>
+          </div>
+        </div>
+        <p>Read 5<sup>3</sup> as “5 to the third power” or “5 cubed.” It means 5 · 5 · 5 = 125, <b>not</b> 5 · 3.</p>
+        <div data-stepper="meaning" data-title="2⁴ means four 2’s multiplied"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">2.2</span> Product rule</h3>
+        <div class="rule"><span class="rule-name">Product rule</span><span class="rule-f m">a<sup>m</sup> · a<sup>n</sup> = a<sup>m + n</sup></span><span class="rule-say">Same base, multiplying → keep the base, <b>add</b> the exponents.</span></div>
+        <div data-stepper="product" data-title="x³ · x²"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">2.3</span> Quotient rule</h3>
+        <div class="rule"><span class="rule-name">Quotient rule</span><span class="rule-f m">a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m − n</sup>, a ≠ 0</span><span class="rule-say">Same base, dividing → keep the base, <b>subtract</b> the exponents (top minus bottom).</span></div>
+        <div data-stepper="quotient" data-title="x⁵ ÷ x²"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">2.4</span> Power of a power</h3>
+        <div class="rule"><span class="rule-name">Power of a power</span><span class="rule-f m">(a<sup>m</sup>)<sup>n</sup> = a<sup>m · n</sup></span><span class="rule-say">A power raised to a power → <b>multiply</b> the exponents.</span></div>
+        <div data-stepper="powpow" data-title="(x²)³"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">2.5</span> Power of a product</h3>
+        <div class="rule"><span class="rule-name">Power of a product</span><span class="rule-f m">(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup></span><span class="rule-say">The exponent goes to <b>every factor</b> inside the parentheses, numbers included.</span></div>
+        <div data-stepper="powprod" data-title="(2x)³"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">2.6</span> Power of a quotient</h3>
+        <div class="rule"><span class="rule-name">Power of a quotient</span><span class="rule-f m">(a/b)<sup>n</sup> = a<sup>n</sup>/b<sup>n</sup>, b ≠ 0</span><span class="rule-say">The exponent goes to the numerator <b>and</b> the denominator.</span></div>
+        <div data-stepper="powquot" data-title="(x/3)²"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">2.7</span> Zero exponent</h3>
+        <div class="rule"><span class="rule-name">Zero exponent</span><span class="rule-f m">a<sup>0</sup> = 1, a ≠ 0</span><span class="rule-say">Any nonzero base to the zero power is 1. Not 0!</span></div>
+        <p>Why? Follow the pattern. Each time the exponent goes down by 1, the value is divided by the base.</p>
+        <div data-stepper="pattern" data-title="Following the pattern down past zero"></div>
+        <div data-stepper="zeroq" data-title="Another view: x³ ÷ x³"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">2.8</span> Negative exponent</h3>
+        <div class="rule"><span class="rule-name">Negative exponent</span><span class="rule-f m">a<sup>−n</sup> = 1/a<sup>n</sup> and 1/a<sup>−n</sup> = a<sup>n</sup></span><span class="rule-say">A negative exponent means <b>reciprocal</b>. Move the factor across the fraction bar and the exponent becomes positive.</span></div>
+        <div data-stepper="negative" data-title="2⁻³"></div>
+        <div data-stepper="negfrac" data-title="(2/3)⁻²"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">2.9</span> All the laws on one table</h3>
+        <div class="table-wrap">
+          <table class="tbl laws-tbl">
+            <thead><tr><th>Law</th><th>Rule</th><th>Example</th></tr></thead>
+            <tbody>
+              <tr><td>Product</td><td class="m">a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup></td><td class="m">x<sup>4</sup> · x<sup>6</sup> = x<sup>10</sup></td></tr>
+              <tr><td>Quotient</td><td class="m">a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m−n</sup></td><td class="m">y<sup>9</sup> ÷ y<sup>3</sup> = y<sup>6</sup></td></tr>
+              <tr><td>Power of a power</td><td class="m">(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup></td><td class="m">(m<sup>3</sup>)<sup>4</sup> = m<sup>12</sup></td></tr>
+              <tr><td>Power of a product</td><td class="m">(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup></td><td class="m">(3k)<sup>2</sup> = 9k<sup>2</sup></td></tr>
+              <tr><td>Power of a quotient</td><td class="m">(a/b)<sup>n</sup> = a<sup>n</sup>/b<sup>n</sup></td><td class="m">(2/x)<sup>3</sup> = 8/x<sup>3</sup></td></tr>
+              <tr><td>Zero exponent</td><td class="m">a<sup>0</sup> = 1</td><td class="m">(7xy)<sup>0</sup> = 1</td></tr>
+              <tr><td>Negative exponent</td><td class="m">a<sup>−n</sup> = 1/a<sup>n</sup></td><td class="m">5<sup>−2</sup> = 1/25</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <div class="checks">
+        <h3 class="h-small">Quick checks</h3>
+        <details><summary>Simplify a<sup>7</sup> · a<sup>5</sup></summary><p>a<sup>12</sup>. Same base, multiplying: add 7 + 5.</p></details>
+        <details><summary>Simplify (4m<sup>3</sup>)<sup>2</sup></summary><p>4<sup>2</sup>(m<sup>3</sup>)<sup>2</sup> = 16m<sup>6</sup>. Don't forget to square the 4.</p></details>
+        <details><summary>Evaluate 3<sup>−2</sup></summary><p>1/3<sup>2</sup> = 1/9. The answer is positive.</p></details>
+        <details><summary>Evaluate −8<sup>0</sup></summary><p>−1. Only 8 is raised to the 0 power: −(8<sup>0</sup>) = −(1) = −1.</p></details>
+      </div>
+      <label class="done"><input type="checkbox" id="done-laws" data-done="laws"> I understand this lesson</label>
+    </section>
+
+    <!-- ============ 3. SIMPLIFYING EXPONENT EXPRESSIONS ============ -->
+    <section id="simplify-exp" data-section>
+      <header class="sec-head">
+        <span class="sec-n">Lesson 3</span>
+        <h2>Simplifying expressions with exponents</h2>
+        <p>Real problems use several laws at once. Follow the same order every time and you won't get lost.</p>
+      </header>
+
+      <article class="topic">
+        <h3><span class="tn">3.1</span> The simplification process</h3>
+        <ol class="process">
+          <li><b>Clear parentheses</b> using the power-of-a-product, power-of-a-quotient and power-of-a-power rules.</li>
+          <li><b>Group like bases</b>: numbers with numbers, <i>x</i>’s with <i>x</i>’s, <i>y</i>’s with <i>y</i>’s.</li>
+          <li><b>Combine</b> each group: multiply the numbers, add exponents when multiplying, subtract when dividing.</li>
+          <li><b>Rewrite negative exponents</b> as positive by moving those factors across the fraction bar.</li>
+          <li><b>Check</b>: each base appears once, no negative or zero exponents remain, and number fractions are reduced.</li>
+        </ol>
+        <div data-stepper="simp1" data-title="(3x²y⁻³)² · 2x⁻¹y⁴"></div>
+        <div data-stepper="simp2" data-title="12a⁵b² ÷ 4a²b⁶"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">3.2</span> Mistakes to avoid</h3>
+        <div class="mistakes">
+          <div class="mistake"><span class="bad m">x<sup>3</sup> · x<sup>4</sup> = x<sup>12</sup></span><span class="good m">x<sup>3</sup> · x<sup>4</sup> = x<sup>7</sup></span><p>Multiplying powers means <b>adding</b> exponents. Multiply only for a power of a power.</p></div>
+          <div class="mistake"><span class="bad m">2<sup>3</sup> · 2<sup>2</sup> = 4<sup>5</sup></span><span class="good m">2<sup>3</sup> · 2<sup>2</sup> = 2<sup>5</sup></span><p>Keep the base. Do not multiply the bases.</p></div>
+          <div class="mistake"><span class="bad m">x<sup>2</sup> · y<sup>3</sup> = (xy)<sup>5</sup></span><span class="good m">x<sup>2</sup>y<sup>3</sup></span><p>Different bases cannot be combined.</p></div>
+          <div class="mistake"><span class="bad m">(3x)<sup>2</sup> = 3x<sup>2</sup></span><span class="good m">(3x)<sup>2</sup> = 9x<sup>2</sup></span><p>The exponent goes to every factor in the parentheses.</p></div>
+          <div class="mistake"><span class="bad m">(x + y)<sup>2</sup> = x<sup>2</sup> + y<sup>2</sup></span><span class="good m">(x + y)<sup>2</sup> = x<sup>2</sup> + 2xy + y<sup>2</sup></span><p>The power rules work for <b>products</b>, not sums.</p></div>
+          <div class="mistake"><span class="bad m">2x<sup>−1</sup> = 1/(2x)</span><span class="good m">2x<sup>−1</sup> = 2/x</span><p>The negative exponent belongs only to <i>x</i>. The 2 stays on top.</p></div>
+        </div>
+      </article>
+
+      <div class="checks">
+        <h3 class="h-small">Quick checks</h3>
+        <details><summary>Simplify (2a<sup>3</sup>)<sup>3</sup> · a<sup>−4</sup></summary><p>8a<sup>9</sup> · a<sup>−4</sup> = 8a<sup>5</sup></p></details>
+        <details><summary>Simplify 15x<sup>2</sup>y ÷ 5x<sup>6</sup>y<sup>4</sup></summary><p>3x<sup>−4</sup>y<sup>−3</sup> = 3/(x<sup>4</sup>y<sup>3</sup>)</p></details>
+      </div>
+      <label class="done"><input type="checkbox" id="done-simplify-exp" data-done="simplify-exp"> I understand this lesson</label>
+    </section>
+
+    <!-- ============ 4. RADICALS ============ -->
+    <section id="radicals" data-section>
+      <header class="sec-head">
+        <span class="sec-n">Lesson 4</span>
+        <h2>What a radical means</h2>
+        <p>A root undoes a power. If 7<sup>2</sup> = 49, then the square root of 49 is 7.</p>
+      </header>
+
+      <article class="topic">
+        <h3><span class="tn">4.1</span> Parts of a radical</h3>
+        <div class="anatomy rad-anat" aria-label="Parts of a radical">
+          <div class="anat-expr" id="radAnat"></div>
+          <div class="anat-labels">
+            <span class="lab lab-idx">index: which root (no index means 2)</span>
+            <span class="lab lab-sym">radical sign</span>
+            <span class="lab lab-rad">radicand: the number inside</span>
+          </div>
+        </div>
+        <p><span class="r">∛<span class="ov">64</span></span> = 4 because 4<sup>3</sup> = 64. Read it as “the cube root of 64.”</p>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">4.2</span> A square root is the side of a square</h3>
+        <p>The square root of a number is the side length of a square with that area. That's where the name comes from.</p>
+        <div data-stepper="area" data-title="√16 as the side of a square"></div>
+        <p>Not every number makes a perfect square. 12 tiles can't form a square, so <span class="r">√<span class="ov">12</span></span> is not a whole number (it's about 3.46). That's why we <b>simplify</b> radicals instead of evaluating them.</p>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">4.3</span> Even and odd index</h3>
+        <div class="mini-grid">
+          <div class="mini"><span class="m"><span class="r">√<span class="ov">25</span></span> = 5</span><span class="cap">principal (positive) root</span></div>
+          <div class="mini"><span class="m"><span class="r">√<span class="ov">−25</span></span> is not real</span><span class="cap">even index, negative radicand</span></div>
+          <div class="mini"><span class="m"><span class="r">∛<span class="ov">−8</span></span> = −2</span><span class="cap">odd index: negatives are fine</span></div>
+        </div>
+        <p>No real number squared gives a negative, so an even root of a negative number is not a real number. An odd root of a negative number is negative, because (−2)<sup>3</sup> = −8.</p>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">4.4</span> Radicals as rational exponents</h3>
+        <div class="rule"><span class="rule-name">Rational exponent</span><span class="rule-f m">a<sup>m/n</sup> = (<sup class="idx">n</sup>√a)<sup>m</sup> = <sup class="idx">n</sup>√(a<sup>m</sup>)</span><span class="rule-say">“Power over root.” The denominator is the index, the numerator is the power.</span></div>
+        <p>So <span class="r">√<span class="ov">x</span></span> = x<sup>1/2</sup> and <span class="r">∛<span class="ov">x</span></span> = x<sup>1/3</sup>. All the laws of exponents still work with fraction exponents.</p>
+        <div data-stepper="ratexp" data-title="8^(2/3)"></div>
+        <div class="table-wrap">
+          <table class="tbl">
+            <thead><tr><th>Radical form</th><th>Exponent form</th><th>Value</th></tr></thead>
+            <tbody>
+              <tr><td class="m"><span class="r">√<span class="ov">49</span></span></td><td class="m">49<sup>1/2</sup></td><td>7</td></tr>
+              <tr><td class="m"><span class="r">∛<span class="ov">125</span></span></td><td class="m">125<sup>1/3</sup></td><td>5</td></tr>
+              <tr><td class="m">(<span class="r">√<span class="ov">9</span></span>)<sup>3</sup></td><td class="m">9<sup>3/2</sup></td><td>27</td></tr>
+              <tr><td class="m">(<sup class="idx">4</sup><span class="r">√<span class="ov">16</span></span>)<sup>3</sup></td><td class="m">16<sup>3/4</sup></td><td>8</td></tr>
+              <tr><td class="m">1/<span class="r">√<span class="ov">x</span></span></td><td class="m">x<sup>−1/2</sup></td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </article>
+
+      <div class="checks">
+        <h3 class="h-small">Quick checks</h3>
+        <details><summary>Evaluate 27<sup>2/3</sup></summary><p>(∛27)<sup>2</sup> = 3<sup>2</sup> = 9</p></details>
+        <details><summary>Write <sup class="idx">5</sup>√(x<sup>2</sup>) with an exponent.</summary><p>x<sup>2/5</sup></p></details>
+        <details><summary>Is <sup class="idx">4</sup>√(−16) a real number?</summary><p>No. The index 4 is even and the radicand is negative.</p></details>
+      </div>
+      <label class="done"><input type="checkbox" id="done-radicals" data-done="radicals"> I understand this lesson</label>
+    </section>
+
+    <!-- ============ 5. SIMPLIFYING RADICALS ============ -->
+    <section id="simplify-rad" data-section>
+      <header class="sec-head">
+        <span class="sec-n">Lesson 5</span>
+        <h2>Simplifying radicals</h2>
+        <p>A radical is in <b>simplest form</b> when the radicand has no factor that is a perfect power of the index, there is no fraction inside the radical, and there is no radical in a denominator.</p>
+      </header>
+
+      <article class="topic">
+        <h3><span class="tn">5.1</span> The breakdown method (prime factors)</h3>
+        <div class="rule"><span class="rule-name">Product property</span><span class="rule-f m"><sup class="idx">n</sup>√(ab) = <sup class="idx">n</sup>√a · <sup class="idx">n</sup>√b</span><span class="rule-say">That's why a group of <i>n</i> equal factors can leave the radical as one factor.</span></div>
+        <ol class="process">
+          <li><b>Break</b> the radicand into prime factors (use the ladder). Write each variable power as repeated factors.</li>
+          <li><b>Group</b> identical factors into groups the size of the index: pairs for √, triples for ∛.</li>
+          <li><b>Pull out</b> one factor from each group. Leftover factors stay inside.</li>
+          <li><b>Multiply</b> everything outside together and everything inside together.</li>
+        </ol>
+        <div class="tool" id="radTool">
+          <form class="tool-form rad-form" id="radForm">
+            <div class="field"><label for="radIdx">Root</label>
+              <select id="radIdx"><option value="2" selected>Square root √</option><option value="3">Cube root ∛</option><option value="4">Fourth root ∜</option></select></div>
+            <div class="field"><label for="radN">Number</label><input id="radN" type="number" min="1" max="100000" value="72" inputmode="numeric"></div>
+            <div class="field"><label for="radX">Power of x</label><input id="radX" type="number" min="0" max="12" value="5" inputmode="numeric"></div>
+            <div class="field"><label for="radY">Power of y</label><input id="radY" type="number" min="0" max="12" value="0" inputmode="numeric"></div>
+            <button type="submit" class="btn">Break it down</button>
+          </form>
+          <div class="chips" aria-label="Try these examples">
+            <button type="button" class="chip-btn" data-ex="2,48,0,0">√48</button>
+            <button type="button" class="chip-btn" data-ex="2,180,3,2">√(180x³y²)</button>
+            <button type="button" class="chip-btn" data-ex="3,54,4,0">∛(54x⁴)</button>
+            <button type="button" class="chip-btn" data-ex="3,250,0,7">∛(250y⁷)</button>
+            <button type="button" class="chip-btn" data-ex="2,30,0,0">√30</button>
+          </div>
+          <p class="tool-err" id="radErr" hidden></p>
+          <div id="radStepper" data-title="Breakdown machine"></div>
+        </div>
+        <p class="note">Variables are assumed to be non-negative so that, for example, <span class="r">√<span class="ov">x²</span></span> = x.</p>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">5.2</span> The shortcut: largest perfect-square factor</h3>
+        <p>Once you know your perfect squares, you can skip the full factorization. Find the <b>largest</b> perfect square that divides the radicand.</p>
+        <div data-stepper="psq" data-title="√72 using a perfect square"></div>
+        <p>If you pick a perfect square that isn't the largest, you still get there, but you have to simplify again:</p>
+        <div data-stepper="notlargest" data-title="√72 starting with 9 · 8"></div>
+      </article>
+
+      <div class="checks">
+        <h3 class="h-small">Quick checks</h3>
+        <details><summary>Simplify √50</summary><p>√(25 · 2) = 5√2</p></details>
+        <details><summary>Simplify ∛40</summary><p>∛(8 · 5) = 2∛5</p></details>
+        <details><summary>Simplify √(48x<sup>3</sup>)</summary><p>48 = 2·2·2·2·3 and x<sup>3</sup> = x·x·x. Two pairs of 2’s and one pair of x’s come out: 4x√(3x)</p></details>
+      </div>
+      <label class="done"><input type="checkbox" id="done-simplify-rad" data-done="simplify-rad"> I understand this lesson</label>
+    </section>
+
+    <!-- ============ 6. OPERATIONS ============ -->
+    <section id="operations" data-section>
+      <header class="sec-head">
+        <span class="sec-n">Lesson 6</span>
+        <h2>Operations on radicals</h2>
+        <p>Add, subtract, multiply and divide radicals, then write the answer in simplest form.</p>
+      </header>
+
+      <article class="topic">
+        <h3><span class="tn">6.1</span> Adding and subtracting: like radicals only</h3>
+        <p><b>Like radicals</b> have the same index <b>and</b> the same radicand. Combine them the way you combine like terms: 2a + 5a = 7a, so 2√3 + 5√3 = 7√3.</p>
+        <div data-stepper="addlike" data-title="2√3 + 5√3"></div>
+        <p>Radicals that look unlike may become like radicals after simplifying. <b>Always simplify first.</b></p>
+        <div data-stepper="addsimp" data-title="√12 + √27"></div>
+        <p class="warn">√2 + √3 is <b>not</b> √5. Unlike radicals cannot be combined.</p>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">6.2</span> Multiplying</h3>
+        <div class="rule"><span class="rule-name">Multiply</span><span class="rule-f m">a√b · c√d = ac√(bd)</span><span class="rule-say">Same index → multiply outside by outside, inside by inside, then simplify.</span></div>
+        <div data-stepper="mult" data-title="√6 · √15"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">6.3</span> Dividing</h3>
+        <div class="rule"><span class="rule-name">Quotient property</span><span class="rule-f m">√a ÷ √b = √(a/b), b &gt; 0</span><span class="rule-say">Divide the radicands under one radical, then simplify.</span></div>
+        <div data-stepper="div" data-title="√50 ÷ √2"></div>
+      </article>
+
+      <article class="topic">
+        <h3><span class="tn">6.4</span> Rationalizing the denominator</h3>
+        <p>Simplest form has no radical in the denominator. Multiply by a form of 1 that turns the denominator into a whole number.</p>
+        <div data-stepper="rat1" data-title="3 ÷ √2"></div>
+        <p>When the denominator is a binomial like 3 − √5, multiply by its <b>conjugate</b> 3 + √5. Because (a − b)(a + b) = a<sup>2</sup> − b<sup>2</sup>, the radical disappears.</p>
+        <div data-stepper="rat2" data-title="4 ÷ (3 − √5)"></div>
+      </article>
+
+      <div class="checks">
+        <h3 class="h-small">Quick checks</h3>
+        <details><summary>Simplify 3√8 − √18</summary><p>3 · 2√2 − 3√2 = 6√2 − 3√2 = 3√2</p></details>
+        <details><summary>Simplify 2√3 · 5√6</summary><p>10√18 = 10 · 3√2 = 30√2</p></details>
+        <details><summary>Rationalize 5/√5</summary><p>5√5 / 5 = √5</p></details>
+      </div>
+      <label class="done"><input type="checkbox" id="done-operations" data-done="operations"> I understand this lesson</label>
+    </section>
+
+    <!-- ============ 7. PRACTICE ============ -->
+    <section id="practice" data-section>
+      <header class="sec-head">
+        <span class="sec-n">Lesson 7</span>
+        <h2>Practice quiz</h2>
+        <p>Ten fresh questions every round. After each answer you'll see the full solution.</p>
+      </header>
+      <div class="seg" role="group" aria-label="Choose quiz topic">
+        <button type="button" class="seg-btn is-on" data-topic="all" aria-pressed="true">Everything</button>
+        <button type="button" class="seg-btn" data-topic="exp" aria-pressed="false">Exponents only</button>
+        <button type="button" class="seg-btn" data-topic="rad" aria-pressed="false">Radicals only</button>
+      </div>
+      <div class="quiz" id="quiz">
+        <div class="qz-top"><span id="qzProg">Question 1 of 10</span><span id="qzScore">Score: 0</span></div>
+        <div class="qz-bar"><i id="qzBarFill"></i></div>
+        <p class="qz-kind" id="qzKind"></p>
+        <div class="qz-q" id="qzQ"></div>
+        <form class="qz-form" id="qzForm" autocomplete="off"></form>
+        <div class="qz-fb" id="qzFb" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ============ 8. CHEAT SHEET ============ -->
+    <section id="cheatsheet" data-section>
+      <header class="sec-head">
+        <span class="sec-n">Summary</span>
+        <h2>Cheat sheet</h2>
+        <p>Everything on one screen for a last look before the test.</p>
+      </header>
+      <div class="sheet">
+        <div class="sheet-card"><h4>Exponent laws</h4>
+          <p class="m">a<sup>m</sup> · a<sup>n</sup> = a<sup>m+n</sup></p>
+          <p class="m">a<sup>m</sup> ÷ a<sup>n</sup> = a<sup>m−n</sup></p>
+          <p class="m">(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup></p>
+          <p class="m">(ab)<sup>n</sup> = a<sup>n</sup>b<sup>n</sup></p>
+          <p class="m">(a/b)<sup>n</sup> = a<sup>n</sup>/b<sup>n</sup></p>
+        </div>
+        <div class="sheet-card"><h4>Zero, negative, fraction</h4>
+          <p class="m">a<sup>0</sup> = 1 &nbsp;(a ≠ 0)</p>
+          <p class="m">a<sup>−n</sup> = 1/a<sup>n</sup></p>
+          <p class="m">(a/b)<sup>−n</sup> = (b/a)<sup>n</sup></p>
+          <p class="m">a<sup>1/n</sup> = <sup class="idx">n</sup>√a</p>
+          <p class="m">a<sup>m/n</sup> = (<sup class="idx">n</sup>√a)<sup>m</sup></p>
+        </div>
+        <div class="sheet-card"><h4>Radical properties</h4>
+          <p class="m"><sup class="idx">n</sup>√(ab) = <sup class="idx">n</sup>√a · <sup class="idx">n</sup>√b</p>
+          <p class="m"><sup class="idx">n</sup>√(a/b) = <sup class="idx">n</sup>√a / <sup class="idx">n</sup>√b</p>
+          <p class="m">(<sup class="idx">n</sup>√a)<sup>n</sup> = a</p>
+          <p class="m">√a · √a = a</p>
+        </div>
+        <div class="sheet-card"><h4>Simplest radical form</h4>
+          <ul>
+            <li>No perfect-power factor left in the radicand</li>
+            <li>No fraction inside a radical</li>
+            <li>No radical in a denominator</li>
+            <li>Like radicals combined</li>
+          </ul>
+        </div>
+        <div class="sheet-card"><h4>Perfect squares</h4>
+          <p class="nums">1 4 9 16 25 36 49 64 81 100 121 144 169 196 225</p>
+          <h4>Perfect cubes</h4>
+          <p class="nums">1 8 27 64 125 216 343 512 729 1000</p>
+        </div>
+        <div class="sheet-card"><h4>Process</h4>
+          <ol>
+            <li>Parentheses first</li>
+            <li>Group like bases</li>
+            <li>Add / subtract / multiply exponents</li>
+            <li>Make exponents positive</li>
+            <li>Break, group, pull out, multiply</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>Radicals &amp; Exponents Reviewer · Use the arrows and dots on any animation to review at your own pace.</p>
+    </footer>
+  </main>
+</div>
+<!--CONTENT-END-->
+<script src="app.js"></script>
+</body>
+</html>
