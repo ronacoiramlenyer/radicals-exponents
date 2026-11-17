@@ -2,20 +2,18 @@
 
 An animated, step-by-step reviewer site for students. Open `index.html` in any browser — no build step or server needed.
 
-## What's inside
+## How it works
 
-0. **Start here** – how to use the reviewer, with a looping demo
-1. **Skills you need first** – integer/sign rules, GEMDAS, divisibility rules, prime factorization (interactive ladder), perfect squares & cubes (flip cards), multiplying and cancelling fractions
-2. **Laws of exponents** – meaning of an exponent, product, quotient, power of a power, power of a product, power of a quotient, zero and negative exponents (each built up from repeated multiplication)
-3. **Simplifying exponent expressions** – a 5-step process with worked animations and common mistakes
-4. **What a radical means** – parts of a radical, square root as side of a square, even/odd index, rational exponents
-5. **Simplifying radicals** – the "breakdown machine" (break → group → pull out → multiply) for any number, index and variable powers, plus the largest-perfect-square shortcut
-6. **Operations on radicals** – adding like radicals, multiplying, dividing, rationalizing (monomial and conjugate)
-7. **Practice quiz** – randomized 10-question rounds with full solutions
-8. **Cheat sheet**
+Every section runs the same loop: **guess, watch, aha**. The student picks an answer first, an animation plays out why, and the rule appears as the consequence instead of the starting point.
 
-Every animation can be stepped forward/back, played, or jumped to with the dots (arrow keys work too).
-Animations respect the "reduce motion" system setting. Progress checkmarks are saved in the browser.
+- **Toolkit:** signs, prime-factor ladder, squares/cubes flip cards, order of operations
+- **Why the rules work:** a slider where the exponent counts multiplications (so zero and negative exponents fall out), then each exponent law as a guess + animation
+- **Put it together:** the "laundry" method for messy expressions, and four "spot the trap" mistakes
+- **Roots undo powers:** a tile slider for square roots, and the reveal that x^(1/2) is the square root
+- **Pairs escape:** an interactive machine that breaks any radical into primes and lets pairs (or triples) out
+- **Radicals as variables:** adding, multiplying, dividing, rationalizing
+- **Prove it:** randomized 10-question quiz with reasoning after every answer
+- **One-card summary**
 
 ## Files
 

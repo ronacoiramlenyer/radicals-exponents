@@ -105,7 +105,7 @@
       el.classList.add("stepper");
       el.classList.toggle("compact", !!opts.compact);
       el.innerHTML = `
-        ${title ? `<div class="st-head"><span class="st-tag">Animated walkthrough</span><span class="st-title">${title}</span></div>` : ""}
+        ${title ? `<div class="st-head"><span class="st-tag">Watch</span><span class="st-title">${title}</span></div>` : ""}
         <div class="st-stage" tabindex="0" aria-label="Animation stage. Use left and right arrow keys to change steps."></div>
         <div class="st-note" aria-live="polite"></div>
         <div class="st-bar">
@@ -346,6 +346,12 @@
         { h: `<span class="area-wrap"><span class="area-col"><span class="tiles sq">${tiles}</span>${T("s1", "side = 4", "side-lab")}</span>${R(T("n", "16"))}${O("eq", "=")}${T("r", "4", "hl")}</span>`, n: "So <b>√16 = 4</b>, because 4<sup>2</sup> = 16. Square root = side of the square." },
       ];
     })(),
+    halfexp: [
+      { h: PW("a", v("x"), "ae", "1/2", "hl", "hl2") + O("m", "·") + PW("b", v("x"), "be", "1/2", "hl", "hl2"), n: "Two copies of the same mystery number, multiplied. Use the product rule: same base, so add the exponents." },
+      { h: PW("a", v("x"), "ae", "1/2 + 1/2", "", "hl2"), n: "Add the exponents: 1/2 + 1/2." },
+      { h: PW("a", v("x"), "ae", "1"), n: "That's 1, so we get <i>x</i><sup>1</sup>." },
+      { h: T("a", v("x"), "hl"), n: "<b>x<sup>1/2</sup> · x<sup>1/2</sup> = x.</b> So x<sup>1/2</sup> is the number that, multiplied by itself, gives x. That's the square root." },
+    ],
     ratexp: [
       { h: T("b", "8") + S(T("en", "2", "hl2") + T("sl", "/") + T("ed", "3", "hl")), n: "A fraction exponent. The <b>denominator</b> (3) is the root. The <b>numerator</b> (2) is the power." },
       { h: O("p1", "(") + R(T("b", "8"), T("ed", "3", "hl")) + O("p2", ")") + S(T("en", "2", "hl2")), n: "Denominator 3 becomes a cube root. Numerator 2 becomes a square." },
@@ -873,54 +879,119 @@
   newRound();
 
   /* =========================================================
-     Navigation: active lesson + "I understand" progress
+     Guess -> watch -> aha
      ========================================================= */
+  const predicts = [...document.querySelectorAll(".predict")];
+  let guessed = 0;
+  document.getElementById("ahaTotal").textContent = predicts.length;
+  predicts.forEach((p) => {
+    const opts = [...p.querySelectorAll(".popt")];
+    const fb = p.querySelector(".pfb");
+    const right = +p.dataset.right;
+    const moment = p.closest(".moment");
+    const reveal = moment && moment.querySelector(".reveal");
+    if (reveal) {
+      const skip = document.createElement("button");
+      skip.type = "button"; skip.className = "skip-guess"; skip.textContent = "Just show me";
+      p.appendChild(skip);
+      skip.addEventListener("click", () => open(null));
+    }
+    function open(idx) {
+      if (p.classList.contains("done")) return;
+      p.classList.add("done");
+      if (idx !== null) {
+        guessed++;
+        document.getElementById("ahaCount").textContent = guessed;
+        opts.forEach((o, k) => { o.disabled = true; if (k === right) o.classList.add("right"); });
+        if (idx !== right) opts[idx].classList.add("wrong");
+        fb.hidden = false;
+        fb.className = "pfb " + (idx === right ? "ok" : "no");
+        fb.textContent = idx === right ? p.dataset.yes : p.dataset.no;
+      } else opts.forEach((o) => (o.disabled = true));
+      const sk = p.querySelector(".skip-guess"); if (sk) sk.remove();
+      if (reveal) {
+        reveal.hidden = false;
+        reveal.classList.add("in");
+        const st = reveal.querySelector(".stepper");
+        if (st && st._stepper && !REDUCE) setTimeout(() => st._stepper.play(), 500);
+      }
+    }
+    opts.forEach((o, k) => o.addEventListener("click", () => open(k)));
+  });
+
+  /* ---------- exponent slider toy ---------- */
+  (function () {
+    const rng = document.getElementById("expN");
+    const out = document.getElementById("expExpr");
+    const chips = document.getElementById("expChips");
+    const cap = document.getElementById("expCap");
+    const nv = document.getElementById("expNv");
+    let base = 2;
+    function render() {
+      const n = +rng.value;
+      nv.textContent = n;
+      const a = Math.abs(n);
+      const val = n >= 0 ? String(base ** n) : "1/" + base ** a;
+      out.innerHTML = `${base}<sup>${n < 0 ? MINUS + a : n}</sup> = <b>${val}</b>`;
+      let h = `<span class="tchip start">1</span>`;
+      for (let i = 0; i < a; i++) h += `<span class="tchip ${n > 0 ? "mul" : "div"}" style="--i:${i}">${n > 0 ? "×" : "÷"} ${base}</span>`;
+      chips.innerHTML = h;
+      cap.textContent =
+        n === 0 ? `Zero multiplications. You're still holding the 1 you started with, so ${base}⁰ = 1.`
+        : n > 0 ? `Start at 1 and multiply by ${base}, ${n} time${n > 1 ? "s" : ""}.`
+        : `Go the other way: divide by ${base}, ${a} time${a > 1 ? "s" : ""}. That gives a fraction, 1/${base ** a}.`;
+    }
+    rng.addEventListener("input", render);
+    document.querySelectorAll("[data-base]").forEach((b) => b.addEventListener("click", () => {
+      base = +b.dataset.base;
+      document.querySelectorAll("[data-base]").forEach((o) => { o.classList.toggle("is-on", o === b); o.setAttribute("aria-pressed", o === b); });
+      render();
+    }));
+    render();
+  })();
+
+  /* ---------- square-tiles toy ---------- */
+  (function () {
+    const rng = document.getElementById("sqN");
+    const wrap = document.getElementById("sqWrap");
+    const cap = document.getElementById("sqCap");
+    const nv = document.getElementById("sqNv");
+    function render() {
+      const n = +rng.value;
+      nv.textContent = n;
+      const s = Math.floor(Math.sqrt(n));
+      const left = n - s * s;
+      let h = `<div class="sq-main" style="grid-template-columns:repeat(${s},var(--ts))">${'<i class="sqt"></i>'.repeat(s * s)}</div>`;
+      if (left) h += `<div class="sq-left" style="grid-template-columns:repeat(${Math.min(left, s + 1)},var(--ts))">${'<i class="sqt x"></i>'.repeat(left)}</div>`;
+      wrap.innerHTML = h;
+      cap.innerHTML = left === 0
+        ? `${n} tiles make a perfect <b>${s} × ${s}</b> square. √${n} = <b>${s}</b>.`
+        : `The biggest square that fits is ${s} × ${s} = ${s * s}, with <b>${left} left over</b>. √${n} is between ${s} and ${s + 1} (about ${Math.sqrt(n).toFixed(2)}). Not a whole number, so we'll simplify it instead.`;
+    }
+    rng.addEventListener("input", render);
+    render();
+  })();
+
+  /* ---------- nav ---------- */
   const links = [...document.querySelectorAll(".toc a")];
-  const linkFor = (id) => links.find((a) => a.dataset.sec === id);
   links.forEach((a) =>
     a.addEventListener("click", (e) => {
       const t = document.getElementById(a.dataset.sec);
       if (!t) return;
       e.preventDefault();
       t.scrollIntoView({ behavior: REDUCE ? "auto" : "smooth", block: "start" });
-      try { history.replaceState(null, "", "#" + a.dataset.sec); } catch (_) {}
     })
   );
-  if ("IntersectionObserver" in window) {
-    const vis = new Map();
-    const io = new IntersectionObserver((ents) => {
-      ents.forEach((en) => vis.set(en.target.id, en.isIntersecting ? en.intersectionRatio : 0));
-      let best = "start";
-      document.querySelectorAll("[data-section]").forEach((s) => {
-        if (s.getBoundingClientRect().top < window.innerHeight * 0.35) best = s.id;
-      });
-      links.forEach((a) => a.classList.toggle("is-active", a.dataset.sec === best));
-      const act = linkFor(best);
-      if (act && window.innerWidth <= 960) act.scrollIntoView({ block: "nearest", inline: "center", behavior: "auto" });
-    }, { threshold: [0, 0.1, 0.5, 1], rootMargin: "-80px 0px -40% 0px" });
-    document.querySelectorAll("[data-section]").forEach((s) => io.observe(s));
-  }
-
-  const KEY = "radexp-done-v1";
-  let done = {};
-  try { done = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (_) { done = {}; }
-  function paintDone() {
-    let c = 0;
-    document.querySelectorAll("[data-done]").forEach((cb) => {
-      const id = cb.dataset.done;
-      cb.checked = !!done[id];
-      if (done[id]) c++;
-      const a = linkFor(id);
-      if (a) a.classList.toggle("is-done", !!done[id]);
+  function setActive() {
+    let best = "start";
+    document.querySelectorAll("[data-section]").forEach((s) => {
+      if (s.getBoundingClientRect().top < window.innerHeight * 0.35) best = s.id;
     });
-    document.getElementById("doneCount").textContent = c;
+    links.forEach((a) => a.classList.toggle("is-active", a.dataset.sec === best));
+    const act = links.find((a) => a.dataset.sec === best);
+    if (act && window.innerWidth <= 960) act.scrollIntoView({ block: "nearest", inline: "center", behavior: "auto" });
   }
-  document.querySelectorAll("[data-done]").forEach((cb) =>
-    cb.addEventListener("change", () => {
-      done[cb.dataset.done] = cb.checked;
-      try { localStorage.setItem(KEY, JSON.stringify(done)); } catch (_) {}
-      paintDone();
-    })
-  );
-  paintDone();
+  let tick = false;
+  addEventListener("scroll", () => { if (!tick) { tick = true; requestAnimationFrame(() => { tick = false; setActive(); }); } }, { passive: true });
+  setActive();
 })();
